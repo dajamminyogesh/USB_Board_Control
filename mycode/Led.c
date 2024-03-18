@@ -46,14 +46,14 @@ void SetAllOff(){
 void SDMountMode()  /*U盘安装效果*/
 {
     SetAllLed(0X0F);
-    delayms(500);
+    delayms(200);
     SetAllOff();
 }
 
 void SDUninstallMode()  /*U盘卸载效果*/
 {
     SetAllLed(0XF0);    //红灯全亮
-    delayms(500);
+    delayms(200);
     SetAllOff();
 }
 
