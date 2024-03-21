@@ -80,7 +80,7 @@ u8 GPIO_Inilize(u8 GPIO, GPIO_InitTypeDef *GPIOx) {
 }
 void GPIO_config(void) {
   GPIO_InitTypeDef GPIO_InitStructure;
-  GPIO_InitStructure.Pin  = GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5;  // p12 p13 p14 P15 为随动输入口
+  GPIO_InitStructure.Pin  = GPIO_Pin_2 | GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5 | GPIO_Pin_6;  // p12 p13 p14 P15 为随动输入口
   GPIO_InitStructure.Mode = GPIO_HighZ;
   GPIO_Inilize(GPIO_P1, &GPIO_InitStructure);
 
@@ -92,9 +92,13 @@ void GPIO_config(void) {
   GPIO_InitStructure.Mode = GPIO_OUT_PP;
   GPIO_Inilize(GPIO_P3, &GPIO_InitStructure);
 
+  GPIO_InitStructure.Pin  = GPIO_Pin_0 | GPIO_Pin_1;
+  GPIO_InitStructure.Mode = GPIO_OUT_PP;
+  GPIO_Inilize(GPIO_P3, &GPIO_InitStructure);
+
   GPIO_InitStructure.Pin  = GPIO_Pin_4;
   GPIO_InitStructure.Mode = GPIO_OUT_PP;
   GPIO_Inilize(GPIO_P5, &GPIO_InitStructure);
 
-  P12 = P13 = P14 = P15 = 0;
+  P12 = P13 = P14 = P15 = P16 = 0;
 }

@@ -53,11 +53,14 @@ typedef struct {
 #define LED6_PIN           P34
 #define LED1_PIN           P54
 #define LED5_PIN           P17
+#define LED9_PIN           P31
+#define LED10_PIN          P30
 
 #define HOTBED_PIN         P12
 #define HEAT1_PIN          P14
 #define HEAT2_PIN          P13
 #define LEDACT_PIN         P15
+#define LEDPCT_PIN         P16
 static u8 GPIO_Inilize(u8 GPIO, GPIO_InitTypeDef *GPIOx);
 void      GPIO_config(void);
 

@@ -9,8 +9,8 @@
 #define BV(n)      (1 << (n))
 #endif
 
-u8 LedState = 0;
-static u8 LastLedState = 0;
+u16 LedState = 0;
+static u16 LastLedState = 0;
 //更新LED状态
 void UpdateLedState()
 {
@@ -22,6 +22,8 @@ void UpdateLedState()
     if(LedState & BV(5))  SET_LED_ON(6);  else SET_LED_OFF(6);
     if(LedState & BV(6))  SET_LED_ON(7);  else SET_LED_OFF(7);
     if(LedState & BV(7))  SET_LED_ON(8);  else SET_LED_OFF(8);
+    if(LedState & BV(8))  SET_LED_ON(9);  else SET_LED_OFF(9);
+    if(LedState & BV(9))  SET_LED_ON(10);  else SET_LED_OFF(10);
 }
 
 //控制指定led亮
@@ -32,14 +34,14 @@ void SetOneLight(LED_DEV setled){
 }
 
 // 控制所有LED状态
-void SetAllLed(u8 state){
+void SetAllLed(u16 state){
     LedState = state; 
     UpdateLedState();
 }
 
 //控制led全灭
 void SetAllOff(){
-    u8 LedState = 0;
+    u16 LedState = 0;
     SetAllLed(LedState);
 }
 
@@ -59,13 +61,14 @@ void SDUninstallMode()  /*U盘卸载效果*/
 
 void SysStart()  /*开机效果*/
 {
-    u8 i,TargLedState = 0; 
-    for(i=8; i>0; i--)
+    u8 i;
+    u16 TargLedState = 0; 
+    for(i=LED_DEV_NUM; i>0; i--)
     {
         TargLedState |= BV(i-1);
         SetAllLed(TargLedState);
         delayms(40);
-        if(i==5) { TargLedState=0; delayms(200); }
+        if(i==6) { TargLedState=0; delayms(200); }
     }
     delayms(200);
     SetAllOff();
