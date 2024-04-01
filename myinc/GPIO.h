@@ -30,7 +30,7 @@
 #define GPIO_Pin_7   0x80  // IO引脚 Px.7
 #define GPIO_Pin_All 0xFF  // IO所有引脚
 
-#define GPIO_P0      0  //
+#define GPIO_P0      0  
 #define GPIO_P1      1
 #define GPIO_P2      2
 #define GPIO_P3      3
@@ -45,16 +45,6 @@ typedef struct {
 } GPIO_InitTypeDef;
 
 #define BUZZER_PIN         P11
-#define LED4_PIN           P37
-#define LED8_PIN           P10
-#define LED3_PIN           P35
-#define LED7_PIN           P36
-#define LED2_PIN           P33
-#define LED6_PIN           P34
-#define LED1_PIN           P54
-#define LED5_PIN           P17
-#define LED9_PIN           P31
-#define LED10_PIN          P30
 
 #define HOTBED_PIN         P12
 #define HEAT1_PIN          P14

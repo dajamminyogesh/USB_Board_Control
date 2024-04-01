@@ -15,7 +15,7 @@ static u8 led1sta,led2sta,led3sta,led4sta,led5sta,led6sta;    /*指示LED状态*
 static u8   LedMode = 0;                               /*流水模式：1有U盘 2无U盘*/   
 static u8   flowdir = 0;                               /*流水灯方向*/
 static u16  IdleCount = 0;                             /*空闲延时计数*/
-static u8   FlowCount = 4;                             /*流水LED计数*/
+static u8   FlowCount = LED_DEV_NUM/2;                             /*流水LED计数*/
 static u16  Count = 0;                                 /*流水延时计数*/
 
 static void StateCheack();   /*输入状态检测*/
@@ -73,10 +73,10 @@ void SysAutoLoop()
   if(LedMode == 1)
   {
     Count++;
-    if(Count > 35)
+    if(Count >40 )
     {
-      if(FlowCount==7) flowdir=0;
-      else if(FlowCount==4) flowdir=1;
+      if(FlowCount==LED_DEV_NUM-2) flowdir=0;
+      else if(FlowCount==LED_DEV_NUM/2) flowdir=1;
       SetAllLed(3 << FlowCount);
       if(flowdir) FlowCount++;
       else        FlowCount--;
@@ -87,10 +87,10 @@ void SysAutoLoop()
   else if(LedMode == 2)
   {
     Count++;
-    if(Count > 35)
+    if(Count > 40)
     {
-      if(FlowCount==8) flowdir=0;
-      else if(FlowCount==4) flowdir=1;
+      if(FlowCount==LED_DEV_NUM-1) flowdir=0;
+      else if(FlowCount==LED_DEV_NUM/2) flowdir=1;
       SetOneLight(FlowCount);
       if(flowdir) FlowCount++;
       else        FlowCount--;
@@ -113,18 +113,11 @@ void USBCheack()
     HotStart();
     isChangeState = false;
   }
-  if(isChangeSD & (!isHasSD))
+  if(isChangeSD)
   {
     BuzzerPlay(100);
-    SDMountMode();
+    SDChangeMode(isHasSD);
     BuzzerPlay(50);
-    isChangeSD = false;
-  }
-  else if(isChangeSD & isHasSD)
-  {
-    BuzzerPlay(50);
-    SDUninstallMode();
-    BuzzerPlay(100);
     isChangeSD = false;
   }
 }
