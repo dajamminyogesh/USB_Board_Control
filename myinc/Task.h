@@ -20,6 +20,5 @@
 //========================================================================
 
 void MainTaskLoop();
-void SysAutoLoop();
-void USBCheack();
+void MainTaskHandle();
 #endif

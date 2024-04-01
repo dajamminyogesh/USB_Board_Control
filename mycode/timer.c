@@ -3,22 +3,16 @@
 #include "Led.h"
 #include "Task.h"
 
-static unsigned int T0Count = 0,T0Count1 = 0;
+static unsigned int T0Count1 = 0;
 
 /********************* Timer0中断函数************************/
 void Timer0_Isr(void) interrupt 1
 {
-	T0Count++;
 	T0Count1++;
-	if(T0Count>=100)
-	{
-		T0Count=0;
-		MainTaskLoop();
-	}
-	if(T0Count1>=10)
+	if(T0Count1>10)
 	{
 		T0Count1=0;
-    	SysAutoLoop();
+    	MainTaskLoop();
 	}
 }
 

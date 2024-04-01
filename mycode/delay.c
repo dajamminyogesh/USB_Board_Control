@@ -38,7 +38,7 @@ static void delay_ms(unsigned char ms)
 }
 
 
-void delayms(u16 ms)
+void delayms(u16 ms) /*非准确演示*/
 {
   u16 i;
   for(i=0; i<ms; i++)

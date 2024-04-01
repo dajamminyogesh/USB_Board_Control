@@ -4,5 +4,5 @@
 
 void BuzzerPlay(unsigned int delaytime);
 void Buzzer_config();
-void HotStart();		/*加热开始*/
+void HotHandle();		/*加热开始*/
 #endif

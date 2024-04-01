@@ -17,11 +17,11 @@ void Buzzer_config()
 	Reset_Buzzer(); /*关蜂鸣器*/
 }
 
-void HotStart()		/*加热开始*/
+void HotHandle()		/*加热开始*/
 {
+  BuzzerPlay(60);
+  delayms(40);
+  BuzzerPlay(40);
+  delayms(40);
   BuzzerPlay(30);
-  delayms(20);
-  BuzzerPlay(20);
-  delayms(20);
-  BuzzerPlay(15);
 }

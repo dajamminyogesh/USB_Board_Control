@@ -43,17 +43,17 @@ void SetAllOff(){
     SetAllLed(LedState);
 }
 
-void SDMountMode()  /*U盘安装效果*/
+void SDMountLedMode()  /*U盘安装效果*/
 {
     SetAllLed(0X0F);
-    delayms(200);
+    delayms(500);
     SetAllOff();
 }
 
-void SDUninstallMode()  /*U盘卸载效果*/
+void SDUninstallLedMode()  /*U盘卸载效果*/
 {
     SetAllLed(0XF0);    //红灯全亮
-    delayms(200);
+    delayms(500);
     SetAllOff();
 }
 
@@ -64,8 +64,8 @@ void SysStart()  /*开机效果*/
     {
         TargLedState |= BV(i-1);
         SetAllLed(TargLedState);
-        delayms(40);
-        if(i==5) { TargLedState=0; delayms(200); }
+        delayms(100);
+        if(i==5) { TargLedState=0; delayms(400); }
     }
     delayms(200);
     SetAllOff();

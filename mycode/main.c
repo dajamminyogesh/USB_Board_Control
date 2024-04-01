@@ -10,12 +10,12 @@
 
 int main() {  		// MCU STC8H1K08  // 晶振频率 24Mhz
   GPIO_config();
-  Timer0_Init();
   Buzzer_config();
-  EA = 1;
   SysStart();
+  Timer0_Init();
+  EA = 1;
   while (1) 
   {
-    USBCheack();
+    MainTaskHandle();
   }
 }

@@ -25,7 +25,7 @@ void SetAllOff();
 //控制led全亮
 void SetAllOn();
 
-void SDMountMode();  /*U盘安装效果*/
-void SDUninstallMode();  /*U盘卸载效果*/
+void SDMountLedMode();  /*U盘安装效果*/
+void SDUninstallLedMode();  /*U盘卸载效果*/
 void SysStart();  /*开机效果*/
 #endif // __LED_H
